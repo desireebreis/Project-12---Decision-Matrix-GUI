@@ -11,12 +11,12 @@ class DecisionMatrix:
 
         # Creating the GUI
         self.root.title('Project 12 - Decision Matrix Generator')
-        self.root.geometry('1350x600')
+        self.root.geometry('1100x400')
         self.root.configure(bg='#FAF3CD')
 
         # Title and logo
     
-        self.title = tk.Label(root, text='Decision Matrix', font=('Century Gothic', 25), bg='#FAF3CD', width=50)
+        self.title = tk.Label(root, text='Decision Matrix', font=('Century Gothic', 20), bg='#FAF3CD', width=30)
         self.title.grid(row=0, column=1)
 
         self.logo = tk.PhotoImage(file='logo.png')
