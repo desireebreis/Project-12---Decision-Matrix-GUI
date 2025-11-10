@@ -14,16 +14,13 @@ class DecisionMatrix:
 
         # Creating the GUI
         self.root.title('Project 12 - Decision Matrix Generator')
-        self.root.state('zoomed')
+        #self.root.state('zoomed')
+        self.root.geometry('900x750')
         self.root.configure(bg='#C0C5A7')
 
         # Title and logo
-    
-        self.title = tk.Label(root, text='Decision Matrix', font=('Century Gothic', 20, 'bold'), bg='#C0C5A7', fg='#56623E', width=30)
-        self.title.grid(row=0, column=1, pady=(0,10))
-
-        logo = Image.open('fdk_logo.png')
-        logo = logo.resize((125,75))
+        logo = Image.open('title.png')
+        logo = logo.resize((300,90))
 
         logo = ImageTk.PhotoImage(logo)
         logo_show = tk.Label(root, image=logo, bg='#C0C5A7')
@@ -32,21 +29,21 @@ class DecisionMatrix:
 
         # Criteria description
         desc = Image.open('criteria.png')
-        desc = desc.resize((700,400))
+        desc = desc.resize((800,400))
 
         desc = ImageTk.PhotoImage(desc)
         desc_show = tk.Label(root, image=desc, bg='#C0C5A7')
         desc_show.image = desc
-        desc_show.grid(row=1, column=0, padx=2, pady=2)
+        desc_show.grid(row=3, column=0, padx=2, pady=2)
     
 
         # Criteria and alternatives
-        self.criteria = ['Cost & Material Efficiency', 'Constructability', 'Structural Efficiency', 'Functionality/Flexibility', 'Aesthetics']
+        self.criteria = ['Cost Efficiency', 'Material Efficiency', 'Structural Efficiency', 'Constructability', 'Functionality/Flexibility', 'Aesthetics']
         self.alternatives = ['Alternative 1', 'Alternative 2']
 
         # Creating a frame for the table
         self.table_frame = tk.Frame(root, bg='#C0C5A7', bd=5, relief = 'raised')
-        self.table_frame.grid(row=1, column=1, pady=10, padx=10)
+        self.table_frame.grid(row=1, column=0, pady=10, padx=10)
 
         # Storage for scores and weights
         self.score_entries = {}
@@ -58,29 +55,29 @@ class DecisionMatrix:
 
         for j, c in enumerate(self.criteria):
             criterion_name = tk.Label(self.table_frame, text=c, font=('Century Gothic', 10, 'bold'), bg='#C0C5A7', fg='#56623E')
-            criterion_name.grid(row=0,column=j+1, padx=2, pady=2)
+            criterion_name.grid(row=0,column=j+1, padx=5, pady=5)
 
             e = tk.Entry(self.table_frame, width=5)
-            e.grid(row=1, column=j+1, padx=2, pady=2)
+            e.grid(row=1, column=j+1, padx=5, pady=5)
             e.insert(0, '1')
             self.weight_entries[c] = e
 #
             weight_label = tk.Label(self.table_frame, text='Weight', font=('Century Gothic', 8, 'italic'),bg='#C0C5A7', fg='#56623E')
-            weight_label.grid(row=2, column=j+1, padx=2, pady=2)
+            weight_label.grid(row=2, column=j+1, padx=5, pady=5)
 
         # Alternatives and score entries
         for i, alt in enumerate(self.alternatives):
             score_label = tk.Label(self.table_frame, text=alt, font=('Century Gothic', 10, 'bold'),bg='#C0C5A7', fg='#56623E')
-            score_label.grid(row=i+3, column=0, padx=2, pady=2)
+            score_label.grid(row=i+3, column=0, padx=5, pady=5)
             for j, c in enumerate(self.criteria):
                 t = tk.Entry(self.table_frame, width=5)
-                t.grid(row=i+3, column=j+1, padx=2, pady=2)
+                t.grid(row=i+3, column=j+1, padx=5, pady=5)
                 t.insert(0, '0')
                 self.score_entries[(alt, c)] = t
 
         # Calculate button
         calc_button = tk.Button(root, text='Calculate & Plot', bg='#56623E',font=('Century Gothic', 10), command=self.calc_plot, fg='white')
-        calc_button.grid(row=7, column=1)
+        calc_button.grid(row=2, column=0, pady=5)
 
         # Result label
         self.result_label = tk.Label(root, text='', font=('Century Gothic', 10, 'bold'), bg='#C0C5A7')
