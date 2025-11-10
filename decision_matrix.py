@@ -20,7 +20,7 @@ class DecisionMatrix:
 
         # Title and logo
         logo = Image.open('title.png')
-        logo = logo.resize((300,90))
+        logo = logo.resize((400,100))
 
         logo = ImageTk.PhotoImage(logo)
         logo_show = tk.Label(root, image=logo, bg='#C0C5A7')
