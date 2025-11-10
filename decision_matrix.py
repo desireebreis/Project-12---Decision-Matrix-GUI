@@ -19,9 +19,9 @@ class DecisionMatrix:
         self.title = tk.Label(root, text='Decision Matrix', font=('Century Gothic', 20), bg='#FAF3CD', width=30)
         self.title.grid(row=0, column=1)
 
-        self.logo = tk.PhotoImage(file='logo.png')
-        logo_show = tk.Label(root, image=self.logo)
-        logo_show.grid(row=0, column=0)
+        self.logo = tk.PhotoImage(file='fdk_logo.png')
+        logo_show = tk.Label(root, image=self.logo, bg='#FAF3CD')
+        logo_show.grid(row=0, column=0, pady=2, padx=2)
 
         # Criteria and alternatives
         self.criteria = ['Structural Performance', 'Cost', 'Constructability', 'Sustainability', 'Safety Compliance', 'Aesthetics']
