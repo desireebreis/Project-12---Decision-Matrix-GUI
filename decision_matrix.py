@@ -3,6 +3,7 @@
 # Import libraries
 import tkinter as tk
 from tkinter import messagebox
+import matplotlib
 import matplotlib.pyplot as plt
 
 class DecisionMatrix:
