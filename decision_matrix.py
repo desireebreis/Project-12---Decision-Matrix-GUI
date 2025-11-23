@@ -38,7 +38,7 @@ class DecisionMatrix:
     
 
         # Criteria and alternatives
-        self.criteria = ['Cost Efficiency', 'Material Efficiency', 'Structural Efficiency', 'Constructability', 'Functionality/Flexibility', 'Aesthetics']
+        self.criteria = ['Cost & Material Efficiency', 'Building Envelope Efficiency', 'Structural Efficiency', 'Constructability', 'Functionality/Flexibility', 'Aesthetics']
         self.alternatives = ['Alternative 1', 'Alternative 2']
 
         # Creating a frame for the table
